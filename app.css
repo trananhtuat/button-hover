@@ -1,0 +1,68 @@
+:root {
+    --bg-body: #1a1a2e;
+    --bg-btn-primary: #00aeef;
+    --bg-btn-danger: #e91e63;
+    --color-btn: #fff;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--bg-body);
+}
+
+.btn {
+    --btn-height: 100px;
+    --translate: -10px;
+    height: var(--btn-height);
+    width: calc(var(--btn-height) * 3);
+    color: var(--color-btn);
+    border: none;
+    outline: none;
+    font-size: 45px;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+}
+
+.btn-primary span {
+    background-color: var(--bg-btn-primary);
+}
+
+.btn-danger span {
+    background-color: var(--bg-btn-danger);
+}
+
+.btn span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.btn > span:nth-child(2) {
+    display: grid;
+    place-items: center;
+    transform: translate(var(--translate), var(--translate));
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn > span:nth-child(1) {
+    opacity: 0.6;
+}
+
+.btn:hover > span:nth-child(2) {
+    transform: translate(
+        calc(var(--translate) / 2),
+        calc(var(--translate) / 2)
+    );
+}
+
+.btn:active > span:nth-child(2) {
+    transform: translate(0, 0);
+}
